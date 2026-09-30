@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wonen in België – hedendaagse en gekke woonvormen</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#D9E8EE;--panel:#F6FAF9;--ink:#1E3446;--muted:#4A6070;--line:#A9C0CB;--gold:#E0A22A;--goldSoft:#F7E2B2;--ok:#2E7F4F;--okSoft:#C4E3CD;--bad:#C0472E;--badSoft:#F4D2C9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12212B;--panel:#1A2D39;--ink:#E6EFF2;--muted:#A9BCC6;--line:#35505F;--gold:#EDB443;--goldSoft:#5A4620;--ok:#6CC08C;--okSoft:#24503A;--bad:#EE8266;--badSoft:#5A2A20}}
+:root[data-theme="dark"]{--bg:#12212B;--panel:#1A2D39;--ink:#E6EFF2;--muted:#A9BCC6;--line:#35505F;--gold:#EDB443;--goldSoft:#5A4620;--ok:#6CC08C;--okSoft:#24503A;--bad:#EE8266;--badSoft:#5A2A20}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Atkinson Hyperlegible",Verdana,"Segoe UI",sans-serif;font-size:18px;line-height:1.5}
+.wrap{max-width:900px;margin:0 auto;padding:12px 18px 40px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.1;margin:0 0 4px}
+.sub{margin:0 0 18px;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+nav button{font:inherit;font-size:17px;border:2px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:6px 16px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+section{background:var(--panel);border-radius:18px;padding:22px}
+section[hidden]{display:none}
+h2{font-size:25px;margin:0 0 6px}h3{font-size:20px;margin:18px 0 8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:var(--bg);border-radius:14px;padding:12px 14px;border-left:6px solid var(--gold)}
+.cards.big{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.pc{width:100%;border-collapse:collapse;margin-top:10px;font-size:16px}
+.pc th,.pc td{border:2px solid var(--line);padding:6px 10px;vertical-align:top;text-align:left;width:50%}
+.pc th{background:var(--goldSoft)}.pc ul{margin:0;padding-left:18px}
+.card b{font-size:20px}.card p{margin:4px 0 0;font-size:16px}
+.tip{border-left:5px solid var(--gold);padding:8px 14px;margin:14px 0;background:var(--bg);border-radius:0 10px 10px 0;font-size:16px}
+.btn{font:inherit;font-size:17px;border:2px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:10px;padding:8px 18px;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink)}
+.picks label{display:inline-block;margin:0 14px 6px 0;font-size:17px}
+.picks input{width:18px;height:18px;vertical-align:-3px}
+.bar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin:6px 0 14px}
+.bar i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.meta{color:var(--muted);font-size:16px}
+.q{font-size:22px;font-weight:700;margin:6px 0 12px}
+.opts{display:grid;gap:8px}
+.opt{font:inherit;text-align:left;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 14px;cursor:pointer;display:flex;gap:10px;align-items:center}
+.opt:hover{border-color:var(--ink)}
+.opt.sel{border-color:var(--ink);background:var(--goldSoft)}
+.opt.ok{border-color:var(--ok);background:var(--okSoft)}
+.opt.bad{border-color:var(--bad);background:var(--badSoft)}
+.opt input{width:20px;height:20px;pointer-events:none}
+.fb{min-height:1.6em;font-weight:700;margin:12px 0 4px}.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.big{font-size:44px;font-weight:700;margin:4px 0}
+.mem{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:12px}
+.mc{font:inherit;font-size:15px;line-height:1.25;min-height:84px;border:2px solid var(--line);border-radius:12px;background:var(--ink);color:var(--bg);cursor:pointer;padding:6px;font-weight:700}
+.mc.up{background:var(--bg);color:var(--ink)}.mc.t.up{border-color:var(--gold);background:var(--goldSoft)}
+.mc.found{background:var(--okSoft);border-color:var(--ok);color:var(--ink);cursor:default}
+ul.wr{padding-left:20px}ul.wr li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Wonen in België 🏠</h1>
+<p class="sub">Hedendaagse woningen en gekke manieren van wonen · 2e jaar</p>
+<nav role="tablist">
+<button role="tab" aria-selected="true" data-tab="leer">1. Leer</button>
+<button role="tab" aria-selected="false" data-tab="oefen">2. Oefen</button>
+<button role="tab" aria-selected="false" data-tab="woord">3. Woordenschat</button>
+<button role="tab" aria-selected="false" data-tab="toets">4. Toets jezelf</button>
+</nav>
+
+<section id="leer">
+<h2>Hedendaagse woningen</h2>
+<p><b>Hedendaags</b> = dingen van nu. Je herkent het woord "heden".</p>
+<div class="cards" id="c1"></div>
+<h3>Gekke manieren van wonen</h3>
+<div class="cards big" id="c2"></div>
+<div class="row"><button class="btn" data-go="oefen">Naar oefenen →</button></div>
+</section>
+
+<section id="oefen" hidden></section>
+<section id="woord" hidden></section>
+<section id="toets" hidden></section>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+
+const T1=[
+["🏢","Loft","(Bijna) geen muren en/of deuren: één grote open ruimte."],
+["🏡","Bungalow","Alles op één verdiep (gelijkvloers), dus geen trappen."],
+["🏘️","Rijhuis","Huizen aan beide kanten: je hebt links en rechts een buur. Let op: een rijhuis is niet altijd klein."],
+["🏠","Halfopen bebouwing","1 huis ernaast: aan één kant een buur."],
+["🏔️","Chalet","Een woning van hout."],
+["🏰","Alleenstaande woning","Een woning zonder buren. Niet alleen voor rijke mensen, maar wel vaak duurder dan een halfopen bebouwing."],
+["🏬","Appartement","Je hebt een boven- en/of onderbuur."],
+["🏛️","Villa","Een groot huis."]];
+const T2=[
+["🚂","Woonwagen (caravan)","Een woning op wielen. Mensen die in een woonwagen wonen, noemen we woonwagenbewoners of kampers.",["kan je verplaatsen"],["weinig plaats"]],
+["⛵","Woonboot","Een woning op het water: je woont op een boot.",["kan je verplaatsen"],["veel verbouwingswerken"]],
+["🧊","Kubuswoning","Een woning in de vorm van een kubus.",["origineel huis"],["schuine muren","veel toeristen","duur"]],
+["🏕️","Tiny house","Een zeer klein ontworpen woning.",["minder verbruikskosten","kan je verplaatsen","origineel ontwerp","goedkoop"],["niet veel plaats voor bezoek/kinderen"]],
+["🦘","Kangoeroewoning (zorgwoning)","Een woning waar je als gezin met je grootouders samenleeft. Een ander woord is zorgwoning.",["kosten delen","elkaar helpen","altijd iemand thuis"],["minder privacy","meer rekening houden met elkaar","groter huis nodig"]],
+["⚡","Energieneutrale woning","Een woning met nul (0) op de meter. Je verbruikt geen gas en je bent zelfvoorzienend in stroom.",["nul op de meter","lage energiefactuur","beter voor het milieu"],["duurder om te bouwen","goede isolatie en zonnepanelen nodig"]]];
+$("#c1").innerHTML=T1.map(t=>`<div class="card"><b>${t[0]} ${t[1]}</b><p>${t[2]}</p></div>`).join("");
+$("#c2").innerHTML=T2.map(t=>`<div class="card"><b>${t[0]} ${t[1]}</b><p>${t[2]}</p><table class="pc"><tr><th>👍 Voordelen</th><th>👎 Nadelen</th></tr><tr><td><ul>${t[3].map(x=>"<li>"+x+"</li>").join("")}</ul></td><td><ul>${t[4].map(x=>"<li>"+x+"</li>").join("")}</ul></td></tr></table></div>`).join("");
+
+// vraag: {t:'mc'|'multi', p:'won'|'gek', q, o:[juiste eerst], n:aantal juiste (multi), e:uitleg}
+const mc=(p,q,...o)=>({t:"mc",p,q,o,e:""});
+const H=q=>(q.l=2,q);
+const tf=(p,q,a,e)=>({t:"tf",p,q,o:["Juist","Fout"],a:a?0:1,e});
+const mu=(p,q,n,e,...o)=>({t:"multi",p,q,o,n,e});
+const Q=[
+mc("won","Wat betekent 'hedendaags'?","dingen van nu","dingen van vroeger","dingen van later","dingen op het water"),
+mc("won","(Bijna) geen muren en/of deuren: dat is een …","loft","bungalow","rijhuis","chalet"),
+mc("won","Alles op één verdiep: dat is een …","bungalow","appartement","villa","loft"),
+mc("won","Huizen aan beide kanten (links en rechts een buur): dat is een …","rijhuis","halfopen bebouwing","alleenstaande woning","villa"),
+mc("won","1 huis ernaast: dat is een …","halfopen bebouwing","rijhuis","alleenstaande woning","appartement"),
+mc("won","Een woning van hout is een …","chalet","villa","appartement","rijhuis"),
+mc("won","Een woning zonder buren is een …","alleenstaande woning","rijhuis","halfopen bebouwing","appartement"),
+mc("won","Je hebt een boven- en/of onderbuur. Dat is een …","appartement","bungalow","villa","chalet"),
+mc("won","Een groot huis noemen we een …","villa","loft","rijhuis","chalet"),
+tf("won","Een bungalow heeft alles op één verdiep.",true,"Geen trappen nodig."),
+tf("won","Een loft heeft veel muren en deuren.",false,"Een loft heeft (bijna) geen muren en/of deuren."),
+tf("won","Een alleenstaande woning is vaak duurder dan een halfopen bebouwing.",true,""),
+tf("won","Een alleenstaande woning is enkel voor rijke mensen.",false,""),
+tf("won","Een rijhuis is altijd klein.",false,"Een rijhuis is niet altijd klein."),
+H(mc("won","Waarom noemen we deze woningen 'hedendaags'?","het zijn dingen van nu (heden)","ze zijn heel oud","ze staan op het water","ze zijn heel klein")),
+H(mc("won","Wat is het verschil tussen een rijhuis en een halfopen bebouwing?","rijhuis: buren aan beide kanten, halfopen: 1 huis ernaast","rijhuis heeft geen buren","halfopen is van hout","er is geen verschil")),
+H(mc("won","Wat is het verschil tussen een alleenstaande woning en een villa?","alleenstaand: zonder buren, villa: groot huis","alleenstaand is van hout","villa heeft een boven- en onderbuur","er is geen verschil")),
+H(mc("won","Hoeveel huizen staan er direct naast een halfopen bebouwing?","1","0","2","3")),
+H(mc("won","Bij welke woning heb je een bovenbuur of onderbuur?","appartement","bungalow","alleenstaande woning","chalet")),
+H(mc("won","Waarom is een bungalow handig voor oudere mensen?","alles is op één verdiep, dus geen trappen","hij is van hout","hij heeft veel verdiepingen","hij staat op het water")),
+H(mc("won","Welke woning past bij de beschrijving 'groot én zonder buren'?","villa","rijhuis","appartement","loft")),
+H(tf("won","Een appartement en een loft zijn precies hetzelfde.",false,"Een loft heeft (bijna) geen muren of deuren, een appartement heeft een boven- en/of onderbuur.")),
+mc("gek","Een woonwagen noemen we ook een …","caravan","chalet","kubus","villa"),
+mc("gek","Mensen die in een woonwagen wonen, noemen we ook …","kampers","bootmensen","lofters","villabewoners"),
+mc("gek","Een woning in de vorm van een kubus is een …","kubuswoning","tiny house","chalet","bungalow"),
+mc("gek","Een zeer klein ontworpen woning is een …","tiny house","villa","loft","kangoeroewoning"),
+mc("gek","Een woning waar je als gezin met je grootouders samenleeft, is een …","kangoeroewoning","woonboot","kubuswoning","chalet"),
+mc("gek","Wat is een nadeel van een woonwagen?","weinig plaats","duur","schuine muren","veel toeristen"),
+mc("gek","Wat is een nadeel van een woonboot?","veel verbouwingswerken","groter huis nodig","schuine muren","veel toeristen"),
+mc("gek","Wat is een voordeel van een kubuswoning?","origineel huis","goedkoop","veel plaats","altijd iemand thuis"),
+mc("gek","Wat is een nadeel van een tiny house?","niet veel plaats voor bezoek/kinderen","duur","veel toeristen","schuine muren"),
+mu("gek","Duid de 4 voordelen van een tiny house aan.",4,"Nadelen: niet veel plaats voor bezoek/kinderen.","minder verbruikskosten","kan je verplaatsen","origineel ontwerp","goedkoop","niet veel plaats voor bezoek/kinderen","groter huis nodig","veel toeristen"),
+mu("gek","Duid de 3 nadelen van een kubuswoning aan.",3,"Nadelen: schuine muren, veel toeristen, duur.","schuine muren","veel toeristen","duur","origineel huis","goedkoop","kan je verplaatsen"),
+mu("gek","Duid de 3 voordelen van een kangoeroewoning aan.",3,"Voordelen: kosten delen, elkaar helpen, altijd iemand thuis.","kosten delen","elkaar helpen","altijd iemand thuis","minder privacy","groter huis nodig","meer rekening houden met elkaar"),
+mu("gek","Duid de 3 nadelen van een kangoeroewoning aan.",3,"Nadelen: minder privacy, meer rekening houden met elkaar, groter huis nodig.","minder privacy","meer rekening houden met elkaar","groter huis nodig","kosten delen","elkaar helpen","altijd iemand thuis"),
+tf("gek","Een tiny house is goedkoop.",true,""),
+tf("gek","In een kangoeroewoning heb je meer privacy.",false,"Je hebt minder privacy."),
+H(mc("gek","Een gezin wil samen met de grootouders leven en de kosten delen. Wat past het best?","kangoeroewoning","tiny house","woonboot","kubuswoning")),
+H(mc("gek","Welke gekke woonvorm is NIET geschikt als je veel bezoek en kinderen hebt?","tiny house","kangoeroewoning","villa","rijhuis")),
+H(mc("gek","Welke woning is een origineel huis, maar duur en met veel toeristen?","kubuswoning","woonwagen","tiny house","kangoeroewoning")),
+H(mc("gek","Welk voordeel hebben woonwagen, woonboot en tiny house gemeen?","je kan ze verplaatsen","ze zijn heel groot","ze hebben schuine muren","je deelt de kosten met grootouders")),
+H(mc("gek","Welke gekke woonvorm heeft veel verbouwingswerken nodig?","woonboot","tiny house","kangoeroewoning","woonwagen")),
+H(mc("gek","Welke woonvorm heeft schuine muren als nadeel?","kubuswoning","woonboot","tiny house","woonwagen")),
+H(mc("gek","Welke woonvorm vraagt een groter huis?","kangoeroewoning","tiny house","woonwagen","woonboot")),
+H(mc("gek","Iemand wil origineel en goedkoop wonen met weinig verbruikskosten. Wat past het best?","tiny house","kubuswoning","kangoeroewoning","villa")),
+H(mu("gek","Welke zaken zijn nadelen van een kangoeroewoning én NIET van een tiny house? Duid de 2 juiste aan.",2,"Minder privacy en meer rekening houden met elkaar horen bij de kangoeroewoning.","minder privacy","meer rekening houden met elkaar","goedkoop","kan je verplaatsen","origineel ontwerp")),
+H(tf("gek","Een tiny house is ideaal als je veel bezoek en kinderen hebt.",false,"Er is niet veel plaats voor bezoek en kinderen.")),
+H(tf("gek","Een kubuswoning is goedkoop.",false,"Een kubuswoning is duur.")),
+mc("gek","Een ander woord voor kangoeroewoning is …","zorgwoning","woonboot","tiny house","kubuswoning"),
+mc("gek","Een woning met nul (0) op de meter is een …","energieneutrale woning","woonwagen","chalet","zorgwoning"),
+mc("gek","In een energieneutrale woning verbruik je geen …","gas","water","hout","lucht"),
+mc("gek","Een energieneutrale woning is zelfvoorzienend in …","stroom","brood","benzine","regen"),
+tf("gek","Een energieneutrale woning heeft veel op de meter staan.",false,"Er staat nul (0) op de meter."),
+mu("gek","Duid alles aan wat past bij een energieneutrale woning.",3,"Nul op de meter, geen gas en zelfvoorzienend in stroom.","nul op de meter","geen gasverbruik","zelfvoorzienend in stroom","veel verbruik","hoge gasfactuur","altijd op vakantie"),
+H(mc("gek","Iemand wil zelf stroom maken en geen gas verbruiken. Wat past het best?","energieneutrale woning","woonwagen","woonboot","chalet")),
+H(mc("gek","Wat betekent zelfvoorzienend?","je maakt zelf wat je nodig hebt","je woont alleen","je betaalt niets","je woont op het water")),
+H(mc("gek","Welke twee woonvormen zijn hetzelfde als je het over samenwonen met grootouders hebt?","kangoeroewoning en zorgwoning","tiny house en woonboot","kubuswoning en loft","woonwagen en chalet")),
+H(mc("gek","Welke gekke woonvorm heeft nul op de meter?","energieneutrale woning","kubuswoning","tiny house","woonwagen"))
+];
+
+function quiz(root,mode){
+ const oef=mode==="oefen";
+ let pool,i,score,wrong,retry;
+ const title=oef?"Oefenen":"Toets jezelf";
+ const intro=oef?"Je krijgt meteen te zien of je antwoord juist is, met uitleg.":"Je ziet je resultaat pas op het einde. Daarna oefen je enkel je fouten opnieuw.";
+ function start(){
+  root.innerHTML=`<h2>${title}</h2><p>${intro}</p><div class="picks"><b>Onderdeel:</b><br>
+  <label><input type="checkbox" value="won" checked> Hedendaagse woningen</label>
+  <label><input type="checkbox" value="gek" checked> Gekke manieren van wonen</label></div>
+  ${oef?"":'<div class="picks" style="margin-top:8px"><b>Niveau:</b><br><label><input type="radio" name="niv" value="1" checked> Basis</label><label><input type="radio" name="niv" value="2"> Moeilijk</label></div>'}
+  <div class="row"><button class="btn go">Start</button></div><p class="meta msg"></p>`;
+  $(".go",root).onclick=()=>{
+   const ps=[...root.querySelectorAll("input[type=checkbox]:checked")].map(x=>x.value);
+   if(!ps.length){$(".msg",root).textContent="Kies minstens één onderdeel.";return}
+   const hard=!oef&&$("input[name=niv]:checked",root).value==="2";
+   let qs=shuffle(Q.filter(q=>ps.includes(q.p)&&(oef||(hard?q.l===2:q.l!==2))));
+   if(!oef)qs=qs.slice(0,15);
+   begin(qs,false);
+  };
+ }
+ function begin(qs,r){pool=qs;i=0;score=0;wrong=[];retry=r;show()}
+ function show(){
+  if(i>=pool.length)return end();
+  const q=pool[i];
+  const opts=q.t==="tf"?q.o.map((t,k)=>({t,k})):shuffle(q.o.map((t,k)=>({t,k})));
+  const correct=q.t==="tf"?[q.a]:q.t==="mc"?[0]:[...Array(q.n).keys()];
+  const multi=q.t==="multi";
+  root.innerHTML=`<div class="meta">Vraag ${i+1} van ${pool.length}${retry?" · fouten opnieuw":""}</div>
+  <div class="bar"><i style="width:${i/pool.length*100}%"></i></div>
+  <div class="q">${q.q}</div>${multi?`<div class="meta" style="margin-bottom:8px">Meerdere antwoorden mogelijk.</div>`:""}
+  <div class="opts">${opts.map(o=>`<button class="opt" data-k="${o.k}">${multi?'<input type="checkbox" tabindex="-1">':""}<span>${o.t}</span></button>`).join("")}</div>
+  <div class="fb" aria-live="polite"></div>
+  <div class="row"><button class="btn chk" ${multi?"":"hidden"}>Controleer</button><button class="btn next" hidden>Volgende →</button></div>`;
+  const btns=[...root.querySelectorAll(".opt")];
+  let done=false;
+  const finish=picked=>{
+   done=true;
+   const ok=picked.length===correct.length&&picked.every(k=>correct.includes(k));
+   if(ok)score++;else wrong.push(q);
+   if(oef||retry){
+    btns.forEach(b=>{const k=+b.dataset.k;b.disabled=true;
+     if(correct.includes(k))b.classList.add("ok");else if(picked.includes(k))b.classList.add("bad")});
+    const fb=$(".fb",root);fb.className="fb "+(ok?"ok":"bad");
+    fb.textContent=(ok?"Juist! ":"Niet juist. ")+(ok?"":q.e?q.e:"")+(ok&&q.e?q.e:"");
+   }
+   $(".chk",root).hidden=true;
+   const n=$(".next",root);n.hidden=false;n.textContent=i+1>=pool.length?"Bekijk resultaat":"Volgende →";
+   if(!(oef||retry)){n.click()}else n.focus();
+  };
+  btns.forEach(b=>b.onclick=()=>{
+   if(done)return;
+   if(multi){b.classList.toggle("sel");$("input",b).checked=b.classList.contains("sel")}
+   else finish([+b.dataset.k]);
+  });
+  $(".chk",root).onclick=()=>{const p=btns.filter(b=>b.classList.contains("sel")).map(b=>+b.dataset.k);if(!p.length){$(".fb",root).textContent="Kies eerst minstens één antwoord.";return}finish(p)};
+  $(".next",root).onclick=()=>{i++;show()};
+ }
+ function end(){
+  const pct=Math.round(score/pool.length*100);
+  const msg=pct===100?"Perfect! 🎉":pct>=70?"Goed bezig! 👍":"Blijf oefenen, je komt er!";
+  root.innerHTML=`<h2>Resultaat</h2><div class="big">${score} / ${pool.length}</div><p><b>${msg}</b></p>
+  ${wrong.length?`<h3>Dit ging nog fout</h3><ul class="wr">${wrong.map(q=>`<li>${q.q}<br><b>→ ${q.t==="tf"?q.o[q.a]:q.o.slice(0,q.t==="mc"?1:q.n).join(", ")}</b></li>`).join("")}</ul>`:"<p>Geen enkele fout. Knap!</p>"}
+  <div class="row">${wrong.length?'<button class="btn retry">Oefen je fouten</button>':""}<button class="btn alt again">Opnieuw beginnen</button></div>`;
+  const r=$(".retry",root);if(r)r.onclick=()=>begin(shuffle(wrong),true);
+  $(".again",root).onclick=start;
+ }
+ start();
+}
+quiz($("#oefen"),"oefen");quiz($("#toets"),"toets");
+
+const W1=[["Loft","(bijna) geen muren of deuren"],["Bungalow","alles op één verdiep"],["Rijhuis","huizen aan beide kanten"],["Halfopen bebouwing","1 huis ernaast"],["Chalet","hout"],["Alleenstaande woning","woning zonder buren"],["Appartement","boven- en/of onderbuur"],["Villa","groot"]];
+const W2=[["Woonwagen","caravan"],["Kampers","mensen die in een woonwagen wonen"],["Woonboot","woning op het water"],["Kubuswoning","woning in de vorm van een kubus"],["Tiny house","zeer klein ontworpen woning"],["Kangoeroewoning","samenleven met je grootouders"],["Zorgwoning","ander woord voor kangoeroewoning"],["Energieneutraal","nul op de meter"],["Zelfvoorzienend","zelf maken wat je nodig hebt"],["Hedendaags","dingen van nu"]];
+function memory(root){
+ function start(){
+  root.innerHTML=`<h2>Woordenschatspel</h2><p>Draai twee kaartjes om. Hoort het woord bij de uitleg? Dan blijven ze open. Vind alle paren!</p>
+  <div class="picks"><b>Kies:</b><br><label><input type="radio" name="ws" value="1" checked> Hedendaagse woningen</label><label><input type="radio" name="ws" value="2"> Gekke woonvormen</label><label><input type="radio" name="ws" value="3"> Alles</label></div>
+  <div class="row"><button class="btn go">Start</button></div>`;
+  $(".go",root).onclick=()=>play($("input[name=ws]:checked",root).value);
+ }
+ function play(k){
+  const src=k==="1"?W1:k==="2"?W2:[...W1,...W2];
+  const P=shuffle(src).slice(0,6);
+  const cards=shuffle(P.flatMap((p,n)=>[{n,t:p[0],c:"t"},{n,t:p[1],c:"d"}]));
+  let open=[],found=0,turns=0,lock=false;
+  root.innerHTML=`<h2>Woordenschatspel</h2><div class="meta">Beurten: <b class="tn">0</b> · Paren: <b class="pn">0</b> / 6</div><div class="mem"></div><div class="fb"></div><div class="row"><button class="btn alt again">Stoppen</button></div>`;
+  const g=$(".mem",root);
+  cards.forEach(c=>{const b=document.createElement("button");b.className="mc";b.textContent="?";b.setAttribute("aria-label","kaartje");
+   b.onclick=()=>{if(lock||b.classList.contains("up")||b.classList.contains("found"))return;
+    b.classList.add("up",c.c);b.textContent=c.t;open.push([b,c]);
+    if(open.length===2){turns++;$(".tn",root).textContent=turns;const [x,y]=open;
+     if(x[1].n===y[1].n){[x,y].forEach(z=>{z[0].classList.remove("up");z[0].classList.add("found")});open=[];found++;$(".pn",root).textContent=found;
+      if(found===6)$(".fb",root).innerHTML=`<span class="ok">Alle paren gevonden in ${turns} beurten! 🎉</span>`}
+     else{lock=true;setTimeout(()=>{open.forEach(z=>{z[0].classList.remove("up","t","d");z[0].textContent="?"});open=[];lock=false},1100)}}};
+   g.appendChild(b)});
+  $(".again",root).textContent="Opnieuw kiezen";$(".again",root).onclick=start;
+ }
+ start();
+}
+memory($("#woord"));
+const tabs=[...document.querySelectorAll("nav button")];
+function go(id){tabs.forEach(t=>t.setAttribute("aria-selected",t.dataset.tab===id));["leer","oefen","woord","toets"].forEach(s=>$("#"+s).hidden=s!==id);scrollTo(0,0)}
+tabs.forEach(t=>t.onclick=()=>go(t.dataset.tab));
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+</script>
+</body>
+</html>
